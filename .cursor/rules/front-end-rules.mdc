@@ -1,0 +1,89 @@
+---
+description: >
+  This rule file defines a modern, consistent, gamified, and Livewire-integrated 
+  mobile-first frontend design system for the RevSales CRM platform. It enforces 
+  structured layouts, responsive patterns, motivational UI elements, and clean 
+  component reuse across all solo and team flows. Every view should feel interactive, 
+  fast, elegant, and intuitive — crafted for salespeople.
+alwaysApply: false
+---
+
+Purpose:  
+Maintain design consistency and development flow across all frontend modules (chat, dashboard, leaderboard, scheduler, calendar, forms) in RevSales.  
+All frontend is developed using **Livewire + Tailwind CSS** and must adhere strictly to these design guidelines.
+
+---
+
+## 🎨 1️⃣ Layout & Structure
+
+✅ Always use **mobile-first responsive layouts** using Tailwind’s `sm:`, `md:`, `lg:` breakpoints  
+✅ Use `flex`, `grid`, or `stacked column` layout styles — avoid absolute or hardcoded positioning  
+✅ Page containers: use `max-w-7xl mx-auto px-4`  
+✅ Maintain vertical and horizontal padding: `p-4`, `px-6`, `py-3`  
+✅ Livewire layout files (Blade components) should use consistent containers for page wrappers
+
+❌ Avoid fixed pixel widths, inline styles, or margin hacks
+
+---
+
+## 🌈 2️⃣ Color Palette
+
+🎨 Professional with soft gamified highlights:
+
+- Light BG: `#f9fafb`  
+- Dark BG: `#0f172a`  
+- Primary Action (CTA): `#2563eb` (blue-600)  
+- Success/XP: `#10b981` (green-500)  
+- Danger/Error: `#ef4444` (red-500)  
+- Highlight Reward: `#facc15` (yellow-400)  
+- Neutral: `gray-200` to `gray-800` (Tailwind palette)
+
+❌ Avoid neon, saturated gradients, harsh contrast  
+
+---
+
+## 🅰️ 3️⃣ Typography
+
+✅ Use Tailwind’s `font-sans` (system font) globally  
+✅ Font sizes:
+- `text-xl` → Section titles  
+- `text-base` → Regular content  
+- `text-sm` → Labels  
+- `text-xs` → Captions, timestamps  
+
+✅ Spacing: `leading-relaxed` for content areas  
+✅ Clickable text: `font-medium` or `font-semibold`
+
+❌ Never use more than 2 font weights per view  
+✅ Text areas in forms should use Livewire two-way binding (`wire:model`)
+
+---
+
+## 🎮 4️⃣ Gamified UX Components
+
+🪙 **XP Points Bar**  
+- Always visible in header or dashboard top  
+- `bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded-full`  
+- Icon: Coin/Star from Lucide
+
+🔥 **Daily Progress Bar**  
+- `w-full h-2 bg-gray-200 rounded-full`  
+- Filled bar: `bg-green-500 transition-all duration-500`  
+- Tracked via Livewire-bound daily goals
+
+🏆 **Leaderboard Cards**  
+- Avatar, name, rank, XP  
+- Highlight current user with: `ring-2 ring-blue-500`  
+- Use `Livewire pagination + component refresh` for real-time updates
+
+🎁 **Bonus XP Cards**  
+- Use Tailwind’s animate-pulse or `framer-motion`  
+- Triggered via Livewire conditionals
+
+---
+
+## 🧱 5️⃣ Cards & Containers
+
+✅ Default container:
+```html
+<div class="bg-white rounded-2xl shadow-md p-4 space-y-2 dark:bg-zinc-800 dark:text-white">...</div>
